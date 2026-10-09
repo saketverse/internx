@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>InternX</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#fff;--card:#fff;--soft:#F5F5F7;--tx:#1d1d1f;--tx2:#6e6e73;--bd:#e5e5ea;--pr:#0071E3;--nv:#1d1d1f;--ok:#1E7B34;--wn:#9A4A00;--er:#C4271C;--sh:0 2px 14px rgba(0,0,0,.06)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,system-ui,sans-serif;letter-spacing:-.011em;min-height:100vh}
+a{color:var(--pr);text-decoration:none}a:hover{text-decoration:underline}h1,h2,h3{color:var(--nv);margin:0 0 8px;letter-spacing:-.025em}h1{font-size:2.4rem;line-height:1.1;font-weight:700}
+header{background:rgba(255,255,255,.8);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--bd);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+nav{max-width:1100px;margin:auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.logo{font-weight:700;font-size:1.2rem;color:var(--nv)!important;text-decoration:none!important;display:flex;gap:8px;align-items:center;margin-right:auto}
+nav a.n{color:var(--tx2);padding:5px 12px;border-radius:99px;text-decoration:none;transition:.2s}nav a.n:hover{background:var(--soft)}nav a.on{color:var(--tx);background:var(--soft);font-weight:600}
+.demo{background:var(--soft);color:var(--tx2);text-align:center;font-size:13px;padding:6px 12px;border-bottom:1px solid var(--bd)}
+main{max-width:1100px;margin:auto;padding:24px 16px 60px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:18px;box-shadow:var(--sh);transition:transform .25s,box-shadow .25s}
+.grid .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.1)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{background:var(--pr);color:#fff;border:0;border-radius:99px;padding:9px 18px;font:inherit;font-weight:500;cursor:pointer;text-decoration:none!important;display:inline-block;transition:.2s}
+.btn:hover{background:#0077ED}.btn.s{background:var(--soft);color:var(--pr)}.btn.s:hover{background:#ebebf0}
+.btn.d{background:var(--er);color:#fff}.btn:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid rgba(0,113,227,.5);outline-offset:2px}
+input,select,textarea{font:inherit;color:var(--tx);background:var(--soft);border:1px solid transparent;border-radius:12px;padding:8px 12px;max-width:100%}
+input:focus,select:focus,textarea:focus{background:#fff;border-color:var(--pr)}
+label{display:block;font-weight:600;font-size:13px;margin:8px 0 3px;color:var(--tx2)}
+.b{display:inline-block;font-size:12px;font-weight:600;border-radius:99px;padding:2px 10px;background:var(--soft);color:var(--tx2)}
+.ok{color:var(--ok)}.wn{color:var(--wn)}.er{color:var(--er)}
+.mut{color:var(--tx2);font-size:13px}.bar{height:8px;background:var(--soft);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--pr);border-radius:9px}
+.cols{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px}.col{min-width:250px;flex:1}
+.hero{padding:36px 0}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:16px 0}.stats b{font-size:2rem;color:var(--nv);display:block;font-weight:700}
+#toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:rgba(29,29,31,.92);color:#fff;padding:10px 18px;border-radius:99px;z-index:9;display:none}
+footer{color:var(--tx2)}
+
+body{background:#fbfbfd}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(480px 380px at 10% 6%,rgba(0,113,227,.16),transparent 70%),radial-gradient(520px 420px at 90% 12%,rgba(175,130,255,.15),transparent 70%),radial-gradient(560px 460px at 75% 95%,rgba(90,210,200,.16),transparent 70%),radial-gradient(440px 380px at 5% 88%,rgba(255,170,190,.14),transparent 70%)}
+header,.card,.demo,input,select,textarea,.b,.btn.s{-webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%)}
+header{background:rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.8);box-shadow:0 1px 0 var(--bd)}
+.demo{background:rgba(255,255,255,.55)}
+.card{background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.85);box-shadow:0 8px 32px rgba(31,45,90,.09),inset 0 1px 0 rgba(255,255,255,.9)}
+.grid .card:hover{box-shadow:0 16px 40px rgba(31,45,90,.15),inset 0 1px 0 #fff}
+input,select,textarea{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.85);box-shadow:inset 0 1px 2px rgba(0,0,0,.05),0 0 0 1px var(--bd)}
+input:focus,select:focus,textarea:focus{background:rgba(255,255,255,.85);border-color:var(--pr)}
+.b{background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px var(--bd)}
+.btn{box-shadow:0 4px 14px rgba(0,113,227,.3),inset 0 1px 0 rgba(255,255,255,.35)}
+.btn.s{background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px var(--bd);color:var(--pr)}.btn.s:hover{background:rgba(255,255,255,.85)}
+nav a.n:hover,nav a.on{background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.9)}
+.bar{background:rgba(0,0,0,.07)}
+
+:root{--pr:#4F46E5;--g:linear-gradient(135deg,#2563EB 0%,#7C3AED 55%,#DB2777 100%);--nv:#0f172a}
+body{font-family:Inter,-apple-system,"SF Pro Display",system-ui,sans-serif;font-weight:500;letter-spacing:-.015em}
+body:before{background:radial-gradient(520px 420px at 8% 4%,rgba(37,99,235,.24),transparent 70%),radial-gradient(560px 460px at 92% 10%,rgba(124,58,237,.22),transparent 70%),radial-gradient(600px 500px at 78% 96%,rgba(20,184,166,.22),transparent 70%),radial-gradient(460px 400px at 4% 90%,rgba(244,114,182,.2),transparent 70%)}
+h1,h2,h3{font-weight:800;letter-spacing:-.035em}h1{font-size:clamp(2.2rem,6vw,3.4rem);font-weight:900;line-height:1.05}
+.hero h1{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+h3{font-size:1.15rem}.logo{font-weight:900;font-size:1.3rem}
+nav a.n{font-weight:600}nav a.on{color:#fff;background:var(--g);box-shadow:0 4px 14px rgba(124,58,237,.35);font-weight:700}
+.btn{background:var(--g);font-weight:700;box-shadow:0 6px 18px rgba(124,58,237,.35),inset 0 1px 0 rgba(255,255,255,.4)}.btn:hover{background:var(--g);filter:brightness(1.08)}
+.btn.s{background:rgba(255,255,255,.65);color:#4F46E5;font-weight:700}.btn.d{background:#DC2626}
+.card{border-top:3px solid rgba(124,58,237,.55)}.grid .card:nth-child(3n+2){border-top-color:rgba(37,99,235,.6)}.grid .card:nth-child(3n){border-top-color:rgba(13,148,136,.6)}
+.stats .card:nth-child(1){border-top-color:#2563EB}.stats .card:nth-child(2){border-top-color:#7C3AED}.stats .card:nth-child(3){border-top-color:#0D9488}
+.stats b{font-size:2.6rem;font-weight:900;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.b{font-weight:700}.ok{color:#0F766E}.wn{color:#B45309}.er{color:#BE123C}
+label{font-weight:700;color:#334155}.bar i{background:var(--g)}
+input:focus,select:focus,textarea:focus{border-color:#7C3AED;box-shadow:0 0 0 3px rgba(124,58,237,.18)}
+a{color:#4F46E5;font-weight:600}.logo,.btn{color:inherit}.btn{color:#fff!important}.btn.s{color:#4F46E5!important}
+
+html{-webkit-text-size-adjust:100%}body{overflow-x:hidden;overflow-wrap:anywhere}img,svg{max-width:100%}
+.card .row>div{flex:1 1 150px;min-width:0}.card .row>div>input,.card .row>div>select{width:100%}
+.btn,nav a.n,select,input[type=checkbox]+*{min-height:40px}.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center}
+input[type=checkbox]{width:18px;height:18px;min-height:0;vertical-align:middle}
+@media(min-width:1400px){nav,main{max-width:1280px}.grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}body{font-size:16px}}
+@media(max-width:820px){main{padding:16px 14px 48px}.card{padding:14px;border-radius:18px}.hero{padding:16px 0}.stats b{font-size:2rem}
+.col{min-width:78vw;scroll-snap-align:start}.cols{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}}
+@media(max-width:600px){
+nav{padding:8px 12px;gap:6px}.logo{width:100%;margin:0}
+nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}nav::-webkit-scrollbar{display:none}.logo{width:auto;margin-right:8px;flex:none}nav a.n{flex:none;padding:8px 12px}
+input,select,textarea{font-size:16px;padding:10px 12px}textarea,input[type=text],input:not([type]),#sk,#c,#av,#in,#pm{width:100%}
+.grid{grid-template-columns:1fr}.btn{padding:11px 16px}.card .row>.btn,.card .row>.btn.s{flex:1 1 auto}
+.card .row>div{flex:1 1 100%}.row{gap:8px}.stats{grid-template-columns:repeat(2,1fr);gap:10px}
+.demo{font-size:12px;padding:6px 10px}footer{padding:16px 12px!important;font-size:12px}
+#toast{width:calc(100% - 28px);text-align:center}}
+@media(hover:none){.grid .card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="demo" role="status">Demo mode — all internships are fictional sample records, stored only in this browser. Not verified live openings.</div>
+<header><nav aria-label="Main"><a class="logo" href="#/"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#2563EB"/><path d="M6 18 12 8l3 5 5-7M16 6h4v4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>InternX</a>
+<a class="n" href="#/">Home</a><a class="n" href="#/internships">Internships</a><a class="n" href="#/roadmap">Roadmap</a><a class="n" href="#/applications">Applications</a><a class="n" href="#/profile">Profile</a></nav></header>
+<main id="app"></main><div id="toast" role="status" aria-live="polite"></div>
+<footer class="mut" style="text-align:center;padding:20px">InternX — Built by Team InternX · Scores show relevance, never selection probability.</footer>
+<script>
+const D=[
+{id:'1',t:'Junior Web Development Intern',o:'Northwind Labs (fictional)',f:'Software',loc:'Remote',m:'Remote',dur:'2 months',st:'₹8,000/month (example)',dl:'2026-11-15',dt:'Example date',stat:'Expected period — unconfirmed',chk:'2026-10-01',
+ d:'Build small UI features for an internal dashboard.',resp:['Build responsive pages','Fix UI bugs'],docs:['Resume','Portfolio link'],
+ r:[{x:'HTML',k:'skill',m:1},{x:'CSS',k:'skill',m:1},{x:'JavaScript',k:'skill',m:1},{x:'Enrolled in year 2 or above',k:'year',v:2,m:1},{x:'Git',k:'skill',m:0},{x:'Personal project',k:'text',m:0}]},
+{id:'2',t:'Data Analytics Intern',o:'Lumen Analytics (fictional)',f:'Data',loc:'Bengaluru',m:'Hybrid',dur:'3 months',st:null,dl:null,dt:'Unknown',stat:'Date unknown',chk:'2026-09-20',
+ d:'Clean datasets and prepare weekly reports.',resp:['Write SQL queries','Prepare charts'],docs:['Resume','Statement of interest'],
+ r:[{x:'SQL',k:'skill',m:1},{x:'Excel',k:'skill',m:1},{x:'Enrolled in year 3 or above',k:'year',v:3,m:1},{x:'Python',k:'skill',m:0},{x:'Statistics coursework',k:'text',m:0}]},
+{id:'3',t:'Content & Social Media Intern',o:'Orchid Media (fictional)',f:'Marketing',loc:'Delhi NCR',m:'On-site',dur:'1 month',st:'Unpaid (example)',dl:'2026-10-05',dt:'Example date',stat:'Needs recheck',chk:'2026-08-02',
+ d:'Draft posts and track engagement.',resp:['Write captions','Track metrics'],docs:['Writing sample'],
+ r:[{x:'Writing',k:'skill',m:1},{x:'Canva',k:'skill',m:0},{x:'Available on weekdays',k:'text',m:1}]},
+{id:'4',t:'Python Automation Intern',o:'Kestrel Systems (fictional)',f:'Software',loc:'Remote',m:'Remote',dur:'6 months',st:'₹12,000/month (example)',dl:'2026-12-01',dt:'Example date',stat:'Upcoming — confirmed',chk:'2026-10-05',
+ d:'Automate recurring ops scripts.',resp:['Write Python scripts','Document workflows'],docs:['Resume','GitHub link'],
+ r:[{x:'Python',k:'skill',m:1},{x:'Graduation year 2026–2028',k:'grad',v:[2026,2028],m:1},{x:'Linux',k:'skill',m:0}]}];
+const ST=['Interested','Preparing','Ready to Apply','Applied','Interview','Outcome'],TS=['Not started','In progress','Completed'];
+let S={p:{skills:[],interests:[]},saved:[],apps:[],tasks:[]};
+try{Object.assign(S,JSON.parse(localStorage.getItem('internx')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('internx',JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,10),nowS=()=>new Date().toISOString();
+function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',2200)}
+const has=(sk)=>(S.p.skills||[]).some(s=>s.toLowerCase()===sk.toLowerCase());
+/* ---- Eligibility (pure; independent of UI) ---- */
+function checkReq(q,p){
+ if(!q.m)return{o:'Preferred',n:'Informational only — never disqualifying.',c:'wn'};
+ const sk=p.skills||[];
+ if(q.k==='skill')return has(q.x)?{o:'Meets',n:`Your profile lists ${q.x}.`,c:'ok'}:{o:'Needs confirmation',n:`Your profile does not confirm ${q.x}. Add it if you have it.`,c:'wn'};
+ if(q.k==='year'){const y=+p.year;return !y?{o:'Needs confirmation',n:'Academic year not in profile.',c:'wn'}:y>=q.v?{o:'Meets',n:`You reported year ${y}.`,c:'ok'}:{o:'Does not meet',n:`You reported year ${y}; year ${q.v}+ is required.`,c:'er'}}
+ if(q.k==='grad'){const g=+p.grad;return !g?{o:'Needs confirmation',n:'Graduation year not in profile.',c:'wn'}:g>=q.v[0]&&g<=q.v[1]?{o:'Meets',n:`Graduation year ${g}.`,c:'ok'}:{o:'Does not meet',n:`Graduation year ${g} is outside ${q.v[0]}–${q.v[1]}.`,c:'er'}}
+ return{o:'Needs confirmation',n:'Cannot be assessed from profile. Check the official source or ask the organisation.',c:'wn'}}
+function eligibility(i,p){const rs=i.r.map(q=>({q,...checkReq(q,p)})),mand=rs.filter(r=>r.q.m);
+ const st=!mand.length?'Cannot be assessed':mand.some(r=>r.o==='Does not meet')?'Does not meet a known requirement':mand.some(r=>r.o!=='Meets')?'Needs confirmation':'Meets known requirements';
+ return{rs,st,c:st.startsWith('Meets')?'ok':st.startsWith('Does')?'er':'wn'}}
+/* ---- Relevance S=0.40K+0.25I+0.20A+0.15P; missing components are dropped and weights renormalised ---- */
+function relevance(i,p){const c=[];const sk=i.r.filter(q=>q.k==='skill');
+ if(sk.length&&(p.skills||[]).length)c.push([.4,sk.filter(q=>has(q.x)).length/sk.length,'skills']);
+ if((p.interests||[]).length)c.push([.25,p.interests.includes(i.f)?1:0,'field']);
+ if(p.avail)c.push([.2,/week|full|any|flex/i.test(p.avail)?1:.5,'availability']);
+ if(p.mode||p.loc)c.push([.15,(!p.mode||p.mode===i.m||p.mode==='Any')?1:0,'work mode']);
+ if(!c.length)return{s:null,why:['Complete your profile to see a relevance score.']};
+ const w=c.reduce((a,x)=>a+x[0],0),s=Math.round(c.reduce((a,x)=>a+x[0]*x[1],0)/w*100),why=[];
+ sk.forEach(q=>why.push(has(q.x)?`Your reported ${q.x} skill matches a role requirement.`:`${q.x} is listed, but your profile does not confirm it.`));
+ if(p.interests?.length)why.push(p.interests.includes(i.f)?`Matches your interest in ${i.f}.`:`${i.f} is not among your interests.`);
+ if(i.dl===null)why.push('Deadline unknown. Check the official source.');
+ return{s,why,used:c.map(x=>x[2])}}
+/* ---- Roadmap generation ---- */
+function suggest(i){const t=[],p=S.p;
+ i.r.filter(q=>q.k==='skill'&&!has(q.x)).forEach(q=>t.push({title:`${q.m?'Assess':'Learn'} ${q.x} for ${i.t}`,description:`Review what ${q.x} involves for this role and practise it.`,reason:`${q.x} is a ${q.m?'mandatory':'preferred'} requirement and is not in your profile. (InternX recommendation)`,priority:q.m?'High':'Medium'}));
+ i.docs.forEach(d=>t.push({title:`Prepare: ${d}`,description:`Have "${d}" ready.`,reason:`Listed as a required document. (InternX recommendation)`,priority:'Medium'}));
+ t.push({title:`Review application checklist for ${i.t}`,description:'Re-read requirements and the official source.',reason:'Final check before applying. (InternX recommendation)',priority:'Low'});
+ return t}
+const byId=id=>D.find(x=>x.id===id);
+function addRoadmap(id){const i=byId(id);let n=0;suggest(i).forEach(t=>{if(!S.tasks.some(x=>x.iid===id&&x.title===t.title)){S.tasks.push({id:uid(),iid:id,status:'Not started',due:'',...t});n++}});save();toast(n?`${n} tasks added to roadmap`:'Tasks already in roadmap')}
+function toggleSave(id){const k=S.saved.indexOf(id);k<0?S.saved.push(id):S.saved.splice(k,1);save();toast(k<0?'Saved':'Removed from saved');route()}
+function track(id){if(S.apps.some(a=>a.iid===id))return toast('Already in tracker');S.apps.push({id:uid(),iid:id,stage:'Interested',outcome:'',next:'',notes:'',upd:nowS()});save();toast('Added to tracker')}
+/* ---- Views ---- */
+const badge=(t,c='')=>`<span class="b ${c}">${esc(t)}</span>`;
+function card(i){const e=eligibility(i,S.p),r=relevance(i,S.p);
+ return `<article class="card"><div class="row">${badge('Demo Data — Not a verified live opening','wn')}</div><h3 style="margin-top:8px">${esc(i.t)}</h3><div class="mut">${esc(i.o)} · ${esc(i.f)}</div>
+ <div class="row" style="margin:8px 0">${badge(i.m)}${badge(i.loc)}${badge(i.dur)}${badge(i.st||'Stipend unknown')}</div>
+ <div class="mut">Status: ${esc(i.stat)} · Deadline: ${i.dl?esc(i.dl)+' ('+esc(i.dt)+')':'Unknown'} · Last checked ${esc(i.chk)}</div>
+ <div class="row" style="margin:8px 0">${badge('Eligibility: '+e.st,e.c)}${r.s!==null?badge('Relevance '+r.s+'/100'):''}</div>
+ <div class="mut">${esc(r.why[0])}</div><div class="row" style="margin-top:10px"><a class="btn" href="#/internships/${i.id}">View details</a><button class="btn s" onclick="toggleSave('${i.id}')" aria-pressed="${S.saved.includes(i.id)}">${S.saved.includes(i.id)?'★ Saved':'☆ Save'}</button></div></article>`}
+const F={q:'',f:'',m:'',e:'',saved:false,sort:'rel'};
+function list(){let L=D.filter(i=>{const h=(i.t+i.o+i.f+i.d+i.r.map(q=>q.x).join(' ')).toLowerCase();
+ return h.includes(F.q.toLowerCase())&&(!F.f||i.f===F.f)&&(!F.m||i.m===F.m)&&(!F.e||eligibility(i,S.p).st===F.e)&&(!F.saved||S.saved.includes(i.id))});
+ const sc=i=>relevance(i,S.p).s??-1;
+ L.sort(F.sort==='dl'?(a,b)=>(a.dl||'9')<(b.dl||'9')?-1:1:F.sort==='chk'?(a,b)=>a.chk<b.chk?1:-1:(a,b)=>sc(b)-sc(a));
+ return `<p class="mut" aria-live="polite">${L.length} result${L.length===1?'':'s'}</p>`+(L.length?`<div class="grid">${L.map(card).join('')}</div>`:`<div class="card">No internships match. <button class="btn s" onclick="clearF()">Clear all filters</button></div>`)}
+function clearF(){Object.assign(F,{q:'',f:'',m:'',e:'',saved:false,sort:'rel'});route()}
+const setF=(k,v)=>{F[k]=v;$('#res').innerHTML=list()};
+const opt=(a,v)=>a.map(x=>`<option ${x===v?'selected':''}>${esc(x)}</option>`).join('');
+const views={
+home(){const open=S.tasks.filter(t=>t.status!=='Completed').length,up=S.apps.filter(a=>a.stage!=='Outcome').length;
+ return `<section class="hero"><h1>Find Your Next Internship. Know What to Do Next.</h1><p class="mut" style="max-width:600px">Discover relevant opportunities, understand eligibility, close skill gaps, and prepare with a personalized roadmap.</p><div class="row"><a class="btn" href="#/internships">Explore Internships</a><a class="btn s" href="#/profile">Create your profile</a></div></section>
+ <div class="stats"><div class="card"><b>${S.saved.length}</b>Saved internships</div><div class="card"><b>${up}</b>Applications in progress</div><div class="card"><b>${open}</b>Open roadmap tasks</div></div>
+ <h2>Journey</h2><div class="row">${['Profile','Discover','Eligibility','Roadmap','Apply & Track'].map((x,i)=>badge((i+1)+'. '+x)).join('')}</div>
+ ${!(S.p.skills||[]).length?`<div class="card" style="margin-top:14px"><b>Start here:</b> add your skills in <a href="#/profile">Profile</a> so InternX can assess eligibility and relevance.</div>`:''}
+ <div class="card" style="margin-top:14px"><h3>How InternX stays honest</h3><p class="mut">Mandatory and preferred requirements are kept apart. Unknown information is shown as unknown. Relevance scores are not selection probabilities.</p></div>`},
+internships(){return `<h1>Internship Radar</h1><div class="card"><div class="row"><div><label for="q">Search</label><input id="q" value="${esc(F.q)}" oninput="setF('q',this.value)" placeholder="Role, skill, field…"></div>
+ <div><label for="f">Field</label><select id="f" onchange="setF('f',this.value)"><option value="">All</option>${opt(['Software','Data','Marketing'],F.f)}</select></div>
+ <div><label for="m">Work mode</label><select id="m" onchange="setF('m',this.value)"><option value="">All</option>${opt(['Remote','Hybrid','On-site'],F.m)}</select></div>
+ <div><label for="e">Eligibility</label><select id="e" onchange="setF('e',this.value)"><option value="">All</option>${opt(['Meets known requirements','Needs confirmation','Does not meet a known requirement'],F.e)}</select></div>
+ <div><label for="s">Sort</label><select id="s" onchange="setF('sort',this.value)"><option value="rel" ${F.sort==='rel'?'selected':''}>Relevance</option><option value="dl" ${F.sort==='dl'?'selected':''}>Deadline</option><option value="chk" ${F.sort==='chk'?'selected':''}>Recently checked</option></select></div>
+ <label style="margin-top:20px"><input type="checkbox" ${F.saved?'checked':''} onchange="setF('saved',this.checked)"> Saved only</label><button class="btn s" style="margin-top:14px" onclick="clearF()">Clear all</button></div></div><div id="res">${list()}</div>`},
+detail(id){const i=byId(id);if(!i)return notFound();const e=eligibility(i,S.p),r=relevance(i,S.p);
+ return `<a href="#/internships">← Back to results</a><div class="card" style="margin-top:10px">${badge('Demo Data — Not a verified live opening','wn')}<h1 style="margin-top:8px">${esc(i.t)}</h1><div class="mut">${esc(i.o)} · ${esc(i.f)} · ${esc(i.m)}, ${esc(i.loc)} · ${esc(i.dur)}</div>
+ <p>${esc(i.d)}</p><p><b>Responsibilities:</b> ${i.resp.map(esc).join('; ')}</p><p><b>Stipend:</b> ${esc(i.st||'Unknown')} · <b>Deadline:</b> ${i.dl?esc(i.dl)+' ('+esc(i.dt)+')':'Unknown'} · <b>Status:</b> ${esc(i.stat)}</p>
+ <p><b>Documents:</b> ${i.docs.map(esc).join(', ')} · <b>Selection stages:</b> not documented</p><p class="mut">Official source: none — this is a fictional sample record, so no application link is available. Last checked ${esc(i.chk)}. Real listings need a source URL.</p>
+ <div class="row"><button class="btn" onclick="addRoadmap('${i.id}')">Add to roadmap</button><button class="btn s" onclick="track('${i.id}')">Add to tracker</button><button class="btn s" onclick="toggleSave('${i.id}')">${S.saved.includes(i.id)?'Remove saved':'Save'}</button><button class="btn s" disabled>No official link</button></div></div>
+ <div class="card" style="margin-top:14px"><h2>Eligibility analysis</h2><p>${badge(e.st,e.c)} ${r.s!==null?badge('Relevance '+r.s+'/100 (not a selection probability)'):''}</p>
+ ${e.rs.map(x=>`<div style="border-top:1px solid var(--bd);padding:8px 0"><b>${esc(x.q.x)}</b> ${badge(x.q.m?'Mandatory':'Preferred')} ${badge(x.o,x.c)}<div class="mut">${esc(x.n)}</div></div>`).join('')}
+ <p class="mut">Tip: confirm anything marked "Needs confirmation" with the official source.</p>${r.why.map(w=>`<div class="mut">• ${esc(w)}</div>`).join('')}</div>`},
+roadmap(){const T=S.tasks,done=T.filter(t=>t.status==='Completed').length,pc=T.length?Math.round(done/T.length*100):0;
+ return `<h1>Personalized Roadmap</h1><div class="card"><b>${pc}% complete</b> <span class="mut">(${done}/${T.length} tasks)</span><div class="bar" role="progressbar" aria-valuenow="${pc}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pc}%"></i></div></div>
+ <div class="card" style="margin-top:12px"><div class="row"><div><label for="nt">New task</label><input id="nt" placeholder="Task title"></div><div><label for="ni">Internship</label><select id="ni"><option value="">None</option>${D.map(i=>`<option value="${i.id}">${esc(i.t)}</option>`).join('')}</select></div><button class="btn" style="margin-top:20px" onclick="addTask()">Create</button></div></div>
+ ${T.length?`<div class="grid" style="margin-top:12px">${T.map(t=>`<div class="card"><b>${esc(t.title)}</b><div class="mut">${t.iid?esc(byId(t.iid).t):'General'} · Priority ${esc(t.priority||'Medium')}</div><p class="mut">${esc(t.reason||t.description||'Added by you')}</p>
+ <div class="row"><select aria-label="Status" onchange="upT('${t.id}','status',this.value)">${opt(TS,t.status)}</select><input type="date" aria-label="Due date" value="${esc(t.due)}" onchange="upT('${t.id}','due',this.value)"><button class="btn s" onclick="delT('${t.id}',this)">Delete</button></div></div>`).join('')}</div>`:`<div class="card" style="margin-top:12px">No tasks yet. <a href="#/internships">Explore internships</a>, open one and choose "Add to roadmap".</div>`}`},
+applications(){const A=S.apps;
+ return `<h1>Application Command Center</h1><p class="mut">Stages are your own records, not confirmation from any employer.</p>${A.length?`<div class="cols">${ST.map(s=>`<div class="col"><h3>${s} (${A.filter(a=>a.stage===s).length})</h3>${A.filter(a=>a.stage===s).map(a=>{const i=byId(a.iid);return `<div class="card" style="margin-bottom:10px"><a href="#/internships/${a.iid}"><b>${esc(i.t)}</b></a><div class="mut">${esc(i.o)} · Deadline ${esc(i.dl||'unknown')}</div>
+ <label>Stage</label><select onchange="upA('${a.id}','stage',this.value)">${opt(ST,a.stage)}</select>
+ ${a.stage==='Outcome'?`<label>Outcome</label><select onchange="upA('${a.id}','outcome',this.value)">${opt(['Not recorded','Selected','Rejected','Withdrawn','Other'],a.outcome||'Not recorded')}</select>`:''}
+ <label>Next action</label><input value="${esc(a.next)}" onchange="upA('${a.id}','next',this.value)"><label>Notes</label><textarea rows="2" style="width:100%" onchange="upA('${a.id}','notes',this.value)">${esc(a.notes)}</textarea>
+ <div class="mut">Updated ${new Date(a.upd).toLocaleString()}</div><button class="btn s" style="margin-top:6px" onclick="delA('${a.id}',this)">Delete</button></div>`}).join('')}</div>`).join('')}</div>`:`<div class="card">No applications yet. Open an <a href="#/internships">internship</a> and choose "Add to tracker".</div>`}`},
+profile(){const p=S.p;return `<h1>Profile</h1><p class="mut">This data drives eligibility checks and relevance scores. Everything is optional; missing facts stay "unknown". Stored only in this browser.</p><div class="card" style="max-width:560px">
+ <label for="c">Course</label><input id="c" value="${esc(p.course)}"><label for="y">Current academic year (1–6)</label><input id="y" type="number" min="1" max="6" value="${esc(p.year)}"><label for="g">Graduation year</label><input id="g" type="number" min="2024" max="2035" value="${esc(p.grad)}">
+ <label for="sk">Skills (comma-separated)</label><input id="sk" style="width:100%" value="${esc((p.skills||[]).join(', '))}"><label for="in">Interest fields</label><select id="in" multiple>${['Software','Data','Marketing'].map(x=>`<option ${(p.interests||[]).includes(x)?'selected':''}>${x}</option>`).join('')}</select>
+ <label for="pm">Preferred work mode</label><select id="pm"><option value="">No preference</option>${opt(['Remote','Hybrid','On-site'],p.mode)}</select><label for="av">Availability</label><input id="av" placeholder="e.g. weekdays, flexible" value="${esc(p.avail)}">
+ <div class="row" style="margin-top:14px"><button class="btn" onclick="saveP()">Save profile</button><button class="btn s" onclick="wipe(this)">Delete all my data</button></div></div>`}};
+function notFound(){return `<h1>Page not found</h1><a href="#/">Go home</a>`}
+function saveP(){const y=+$('#y').value,g=+$('#g').value;if(y&&(y<1||y>6))return toast('Year must be 1–6');
+ S.p={course:$('#c').value.trim(),year:y||'',grad:g||'',skills:$('#sk').value.split(',').map(s=>s.trim()).filter(Boolean),interests:[...$('#in').selectedOptions].map(o=>o.value),mode:$('#pm').value,avail:$('#av').value.trim()};save();toast('Profile saved')}
+function addTask(){const t=$('#nt').value.trim();if(!t)return toast('Enter a title');S.tasks.push({id:uid(),iid:$('#ni').value,title:t,description:'',reason:'Added by you',priority:'Medium',status:'Not started',due:''});save();route()}
+function upT(id,k,v){S.tasks.find(t=>t.id===id)[k]=v;save();if(k==='status')route()}
+function upA(id,k,v){const a=S.apps.find(x=>x.id===id);a[k]=v;a.upd=nowS();save();if(k==='stage')route()}
+function confirmBtn(b,fn){if(b.dataset.c){fn();return}b.dataset.c=1;b.textContent='Confirm delete?';b.className='btn d';setTimeout(()=>{b.dataset.c='';b.textContent='Delete';b.className='btn s'},3000)}
+function delT(id,b){confirmBtn(b,()=>{S.tasks=S.tasks.filter(t=>t.id!==id);save();route()})}
+function delA(id,b){confirmBtn(b,()=>{S.apps=S.apps.filter(t=>t.id!==id);save();route()})}
+function wipe(b){confirmBtn(b,()=>{S={p:{skills:[],interests:[]},saved:[],apps:[],tasks:[]};save();toast('Local data deleted');route()})}
+function route(){const h=location.hash.slice(2)||'',[a,b]=h.split('/');let v;
+ v=a===''?views.home():a==='internships'?(b?views.detail(b):views.internships()):views[a]?views[a]():notFound();
+ $('#app').innerHTML=v;document.querySelectorAll('nav a.n').forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#/'+(a||'')))}
+addEventListener('hashchange',()=>{route();scrollTo(0,0)});route();
+</script></body></html>
